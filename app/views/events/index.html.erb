@@ -1,2 +1,19 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>Events</h1>
+<h2>Upcoming Shows</h2>
+
+<div>
+  <% @events.each do |event| %>
+    <div class="event">
+      <div class="date"><%= event.date.strftime("%B %d")  %></div>
+      <div class="time"><%=  event.time.strftime("%l:%M %p")  %></div>
+      <div class="bands">
+        <% event.bands.each do |band| %>
+          <span class="band">
+            <%= band.name  %>
+          </span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+

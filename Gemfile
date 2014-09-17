@@ -37,12 +37,20 @@ gem 'unicorn'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+#
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'faker'
+  gem 'launchy'
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :development do
