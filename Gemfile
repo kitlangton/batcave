@@ -39,7 +39,13 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 group :test do
+  gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+end
+
+group :development do
+  gem 'guard-spork'
+  gem 'guard-cucumber'
 end
