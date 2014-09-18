@@ -5,14 +5,20 @@
 body {
   background-color: black;
   color: white;
+  padding: 0;
+  margin: 0;
 }
 
 #events {
+  padding: 0 5%;
+
   .event {
     display: inline-block;
-    width: 30%;
-    padding: 30px 0 0 0;
-
+    // margin-left: auto;
+    // margin-right: auto;
+    text-align: center;
+    width: 49%;
+    padding: 5% 0;
   }
 }
 
