@@ -1,0 +1,9 @@
+<div class="date"><%= event.date.strftime("%B %d")  %></div>
+<div class="time"><%=  event.time.strftime("%l:%M %p")  %></div>
+<div class="bands">
+  <% event.bands.each do |band| %>
+    <span class="band">
+      <%= band.name  %>
+    </span>
+  <% end %>
+</div>
