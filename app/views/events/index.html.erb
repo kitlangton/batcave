@@ -1,11 +1,26 @@
+<h1>Upcoming Shows</h1>
 
-<div id="events">
-  <h1>Events</h1>
-  <h2>Upcoming Shows</h2>
+
+<div id="container" class="centered transitions-enabled infinite-scroll clearfix">
   <% @events.each do |event| %>
-    <div class="event">
+    <div class="event box col5">
       <%= render 'event', event: event %>
     </div>
   <% end %>
 </div>
+
+
+
+<script src="../{{ site.jquery_js }}"></script>
+<script src="../{{ site.masonry_js }}"></script>
+<script>
+  $(function(){
+    $('#container').masonry({
+      itemSelector: '.box',
+      columnWidth: 100,
+      isAnimated: true,
+      isFitWidth: true
+    });
+  });
+</script>
 
