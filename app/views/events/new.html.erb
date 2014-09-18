@@ -1,0 +1,17 @@
+<% provide(:title, 'Create An Event') %>
+
+<div class="form-container">
+<%= form_for @event do |f| %>
+  <%# <%= render 'fields', f: f  %>
+  <%= f.date_select :date  %>
+  at
+  <%= f.time_select :time, ampm: true, minute_step: 15%>
+    <%= f.fields_for :bands do |bands_form|  %>
+    <div class="band-name-form">
+      <%= bands_form.label :name %>
+      <%= bands_form.text_field :name %>
+    </div>
+  <% end %>
+  <%= f.submit "Create"  %>
+<% end %>
+</div>
