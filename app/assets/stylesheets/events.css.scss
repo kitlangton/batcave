@@ -9,6 +9,7 @@ body {
   margin: 0;
 }
 
+
 .logo {
   max-width: 50%;
   display: block;
@@ -26,6 +27,17 @@ h1, h2 {
   text-align: center;
   font-weight: bold;
   color: black;
+
+  .band {
+    &:first-child {
+      display: block;
+      font-style: italic;
+    }
+    font-weight: normal;
+    display: inline-block;
+    width: 40%;
+    margin: auto;
+  }
 }
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }

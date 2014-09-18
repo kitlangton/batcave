@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'sqlite3'
+  gem 'faker'
 end
 
 group :production do
@@ -50,7 +51,6 @@ group :production do
 end
 
 group :test do
-  gem 'faker'
   gem 'launchy'
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
