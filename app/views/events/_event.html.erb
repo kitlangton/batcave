@@ -4,7 +4,7 @@
 <div class="poster">
   <%= image_tag event.image_url(:thumb).to_s  %>
 </div>
-<div class="text">
+<div class="event-text">
 
   <div class="date"><%= event.date.strftime("%B %d")  %></div>
   <div class="time"><%=  event.time.strftime("%l:%M %p")  %></div>

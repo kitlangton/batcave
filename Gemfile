@@ -40,6 +40,7 @@ gem 'masonry-rails'
 
 gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'rspec-rails'
