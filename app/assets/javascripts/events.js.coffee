@@ -6,12 +6,19 @@
 
 $ ->
   $("#container").masonry
-    itemSelector: ".box"
-    columnWidth: 100
-    isAnimated: true
-    isFitWidth: true
+      itemSelector: ".box"
+      columnWidth: 100
+      isAnimated: true
+      isFitWidth: true
 
-  $(".masonry-brick").click ->
-    $(this).toggleClass "event-pre"
-    $(this).toggleClass "event-post"
-    $("#container").masonry "reload"
+
+    $(".masonry-brick").click ->
+      # $(this).siblings().removeClass "event-post"
+      # $(this).siblings().addClass "event-pre"
+      $(this).toggleClass "event-pre"
+      $(this).toggleClass "event-post"
+      $("#container").masonry "reload"
+
+
+$(window).load ->
+      $("#container").masonry "reload"

@@ -74,18 +74,13 @@ h1, h2 {
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 
-.gigante {
-  width: 180px;
-  height: 180px;
-}
-
 .event-pre {
   width: auto;
-  margin: auto;
+  margin: 15px 25px;
   padding: 0 0;
 
   img {
-    width: 150px;
+    width: 200px;
     height: auto;
     display: inline-block;
     margin: auto;
@@ -98,6 +93,7 @@ h1, h2 {
 
 .event-post {
   width: auto;
+  margin: 0;
   padding: 0 0;
 
   img {
@@ -116,6 +112,10 @@ h1, h2 {
   background: darkgray;
   border-color: white;
   cursor: pointer;
+}
+
+.container {
+  margin: auto;
 }
 
 .masonry:after {
