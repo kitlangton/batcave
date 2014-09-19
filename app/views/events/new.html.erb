@@ -1,11 +1,14 @@
 <% provide(:title, 'Create An Event') %>
 
 <div class="form-container">
-<%= form_for @event do |f| %>
+  <%= form_for @event, :html => {:multipart => true} do |f| %>
   <%# <%= render 'fields', f: f  %>
   <%= f.date_select :date  %>
   at
   <%= f.time_select :time, ampm: true, minute_step: 15%>
+  <div class="poster-form">
+    <%= f.file_field :image  %>
+  </div>
     <%= f.fields_for :bands do |bands_form|  %>
     <div class="band-name-form">
       <%= bands_form.label :name %>

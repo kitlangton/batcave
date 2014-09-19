@@ -4,3 +4,14 @@
 #
 #
 
+$ ->
+  $("#container").masonry
+    itemSelector: ".box"
+    columnWidth: 100
+    isAnimated: true
+    isFitWidth: true
+
+  $(".masonry-brick").click ->
+    $(this).toggleClass "event-pre"
+    $(this).toggleClass "event-post"
+    $("#container").masonry "reload"
