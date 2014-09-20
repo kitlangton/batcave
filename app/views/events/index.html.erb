@@ -1,10 +1,19 @@
-<% provide(:title, "Upcoming Shows" ) %>
+<h1>THE FUTURE</h1>
+
+<div id="container" class="container centered transitions-enabled infinite-scroll clearfix">
+  <% @upcoming_events.each do |event| %>
+    <div class="event-pre event box col5 <%= "tonight" if event.today? %>">
+      <%= render 'event', event: event %>
+    </div>
+  <% end %>
+</div>
 
 
+<h1 class="faded">HISTORY</h1>
 
-<div id="container" class="centered transitions-enabled infinite-scroll clearfix">
-  <% @events.each do |event| %>
-    <div class="event-pre event box col5">
+<div id="history-container" class="container centered transitions-enabled infinite-scroll clearfix">
+  <% @past_events.each do |event| %>
+    <div class="history event-pre event box col5 <%= "tonight" if event.today? %>">
       <%= render 'event', event: event %>
     </div>
   <% end %>

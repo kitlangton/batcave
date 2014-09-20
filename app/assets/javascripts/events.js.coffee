@@ -11,14 +11,21 @@ $ ->
       isAnimated: true
       isFitWidth: true
 
+  $("#history-container").masonry
+      itemSelector: ".box"
+      columnWidth: 100
+      isAnimated: true
+      isFitWidth: true
 
-    $(".masonry-brick").click ->
+    $(".masonry-brick > .poster").click ->
       # $(this).siblings().removeClass "event-post"
       # $(this).siblings().addClass "event-pre"
-      $(this).toggleClass "event-pre"
-      $(this).toggleClass "event-post"
+      $(this).closest(".masonry-brick").toggleClass "event-pre"
+      $(this).closest(".masonry-brick").toggleClass "event-post"
       $("#container").masonry "reload"
+      $("#history-container").masonry "reload"
 
 
 $(window).load ->
       $("#container").masonry "reload"
+      $("#history-container").masonry "reload"

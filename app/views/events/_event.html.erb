@@ -1,12 +1,14 @@
-<!-- <div class="distance"> -->
-<!--   <%= distance_of_time_in_words(Time.now, event.show_time)  %> -->
-<!-- </div> -->
 <div class="poster">
   <%= image_tag event.image_url(:thumb).to_s  %>
 </div>
 <div class="event-text">
-
+  <% if event.today? %>
+    <div class="date strong">
+  TONIGHT
+    </div>
+  <% else %>
   <div class="date"><%= event.date.strftime("%B %d")  %></div>
+  <% end %>
   <div class="time"><%=  event.time.strftime("%l:%M %p")  %></div>
   <div class="bands">
     <% event.bands.each do |band| %>

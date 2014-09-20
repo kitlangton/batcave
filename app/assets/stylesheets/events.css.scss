@@ -44,17 +44,19 @@ h1, h2 {
   }
 }
 
+.tonight {
+  img {
+    box-shadow: 0px 0px 15px #fff;
+  }
+}
 
 .event {
   font-size: 1em;
   text-align: center;
   font-weight: bold;
-  color: black;
-  .poster {
-    img {
-      // min-height: 100px;
-      // max-height: 100%;
-    }
+  color: white;
+  img {
+    vertical-align: top;
   }
 
   .band {
@@ -70,15 +72,28 @@ h1, h2 {
   }
 }
 
+
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+.history {
+  opacity: .5;
+  -webkit-transition: opacity .35s ease-in-out;
+  -moz-transition: opacity .35s ease-in-out;
+  -ms-transition: opacity .35s ease-in-out;
+  -o-transition: opacity .35s ease-in-out;
+  transition: opacity .35s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 
 .event-pre {
   width: auto;
   margin: 15px 25px;
   padding: 0 0;
-
   img {
     width: 200px;
     height: auto;
@@ -93,9 +108,9 @@ h1, h2 {
 
 .event-post {
   width: auto;
-  margin: 0;
+  margin: 15px 0;
   padding: 0 0;
-
+  opacity: 1;
   img {
     width: auto;
     height: 400px;
@@ -108,10 +123,22 @@ h1, h2 {
   }
 }
 
-.box:hover {
-  background: darkgray;
-  border-color: white;
-  cursor: pointer;
+.faded {
+  opacity: .5;
+}
+
+.box {
+  background-color: black;
+  -webkit-transition: opacity .35s ease-in-out;
+  -moz-transition: opacity .35s ease-in-out;
+  -ms-transition: opacity .35s ease-in-out;
+  -o-transition: opacity .35s ease-in-out;
+  transition: opacity .35s ease-in-out;
+  .box:hover {
+    background: darkgray;
+    border-color: white;
+    cursor: pointer;
+  }
 }
 
 .container {
