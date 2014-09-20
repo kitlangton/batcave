@@ -1,17 +1,24 @@
 <div class="poster">
-  <%= image_tag event.image_url(:thumb).to_s  %>
+  <%= image_tag event.image_url(:thumb).to_s, class: "poster" %>
 </div>
 <div class="event-text">
+
+  <div class="date-and-time">
   <% if event.today? %>
-    <div class="date strong">
+    <span class="date strong">
   TONIGHT
-    </div>
+    </span>
   <% else %>
-  <div class="date"><%= event.date.strftime("%B %d")  %></div>
+  <span class="date"><%= event.date.strftime("%B %d")  %></span>
   <% end %>
-  <div class="time"><%=  event.time.strftime("%l:%M %p")  %></div>
+  <span class="time">at <%=  event.time.strftime("%l:%M %p")  %></span>
+  </div>
+
   <div class="bands">
     <% event.bands.each do |band| %>
+      <div class="separator">
+        <%= image_tag "separator.png"%>
+      </div>
       <span class="band">
       <%= band.name  %>
     </span>

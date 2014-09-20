@@ -270,6 +270,7 @@ DEPENDENCIES
   guard-spork
   jbuilder (~> 2.0)
   jquery-rails
+  json
   launchy
   masonry-rails
   pg

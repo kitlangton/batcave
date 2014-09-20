@@ -10,6 +10,7 @@ $ ->
       columnWidth: 100
       isAnimated: true
       isFitWidth: true
+      gutter: 30
 
   $("#history-container").masonry
       itemSelector: ".box"
