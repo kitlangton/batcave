@@ -9,12 +9,26 @@
   <div class="poster-form">
     <%= f.file_field :image  %>
   </div>
-    <%= f.fields_for :bands do |bands_form|  %>
+
     <div class="band-name-form">
-      <%= bands_form.label :name %>
-      <%= bands_form.text_field :name %>
+      <%= text_field_tag 'bands[][name]' %>
     </div>
-  <% end %>
+
+    <div class="actions">
+      <%= button_tag 'Add New Band', id: 'add_band_form', type: 'button'  %>
+    </div>
+
+    <div class="new_band_row hidden">
+      <%= text_field_tag 'bands[][name]' %>
+    </div>
+
   <%= f.submit "Create"  %>
 <% end %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $('#add_band_form').bind('click', function(e) {
+    var div = $('.new_band_row').clone().removeClass('hidden new_band_row');
+    $('.actions').before(div);
+  });
+</script>

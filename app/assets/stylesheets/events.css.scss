@@ -138,6 +138,10 @@ h1, h2 {
   opacity: .5;
 }
 
+.hidden {
+  display: none;
+}
+
 .box {
   background-color: black;
   -webkit-transition: opacity .35s ease-in-out;

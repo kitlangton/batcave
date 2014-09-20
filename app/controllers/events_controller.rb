@@ -20,7 +20,11 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      # flash[:success] = nil
+      params[:bands].each do |band|
+        next if band[:name].empty?
+        @event.bands.create!(name: band[:name])
+      end
+      flash[:success] = params[:bands][0]
     else
       render 'new'
     end
@@ -29,6 +33,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :time, :image, bands_attributes: [:name])
+    params.require(:event).permit(:date, :time, :image)
   end
 end

@@ -26,6 +26,10 @@ $ ->
       $("#container").masonry "reload"
       $("#history-container").masonry "reload"
 
+    # $("#add_band_form").bind "click", (e) ->
+    #   row = $("div.new_band_row").clone().removeClass("hidden new_band_row")
+    #   $("div.actions").before div
+
 
 $(window).load ->
       $("#container").masonry "reload"
