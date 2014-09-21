@@ -22,6 +22,10 @@
       <%= text_field_tag 'bands[][name]', nil, class: 'typeahead'%>
     </div>
 
+    <div class="band-name-form">
+      <%= text_field_tag 'bands[][name]', nil, class: 'typeahead'%>
+    </div>
+
     <% 5.times do %>
     <div class="band-name-form hidden">
       <%= text_field_tag 'bands[][name]', nil, class: 'typeahead' %>
@@ -30,11 +34,12 @@
 
   </div>
 
-    <div class="actions">
-      <%= button_tag 'Add New Band', id: 'add_band_form', type: 'button'  %>
+    <div class="actions form-button">
+      <%= button_tag 'Add New Band', id: 'add_band_form', type: 'button', class: 'pure-button'  %>
     </div>
-
-  <%= f.submit "Create"  %>
+<div class="form-button">
+  <%= f.submit "Create", class: 'pure-button' %>
+</div>
 <% end %>
 </div>
 

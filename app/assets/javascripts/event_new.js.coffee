@@ -25,7 +25,7 @@ $ ->
   $(".typeahead").typeahead
     hint: true
     highlight: true
-    minLength: 1
+    minLength: 2
   ,
     name: "states"
     displayKey: "value"
