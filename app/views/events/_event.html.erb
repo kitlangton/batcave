@@ -2,7 +2,7 @@
   <%= image_tag event.image_url(:thumb).to_s, class: "poster" %>
 </div>
 <div class="event-text">
-
+  <%= link_to event do  %>
   <div class="date-and-time">
   <% if event.today? %>
     <span class="date strong">
@@ -12,6 +12,7 @@
   <span class="date"><%= event.date.strftime("%B %d")  %></span>
   <% end %>
   <span class="time">at <%=  event.time.strftime("%l:%M %p")  %></span>
+<% end  %>
   </div>
 
   <div class="bands">

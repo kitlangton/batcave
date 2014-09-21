@@ -1,0 +1,21 @@
+<link href='http://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+
+<div class="event-show-container">
+  <div class="poster-show">
+
+    <span class="taped-up">
+      <%= image_tag @event.image_url%>
+    </span>
+  </div>
+
+  <div class="bands-show">
+    <h1>BANDS</h1>
+    <% @event.bands.each do |band| %>
+      <div class="band-show">
+      <%= band.name  %>
+    </div>
+  <% end %>
+  </div>
+
+</div>

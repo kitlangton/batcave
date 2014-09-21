@@ -1,4 +1,10 @@
-// Place all the styles related to the events controller here.
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}// Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -50,7 +56,6 @@ h1, h2 {
   }
 }
 
-
 .event {
   font-size: 1em;
   text-align: center;
@@ -71,6 +76,29 @@ h1, h2 {
     width: 40%;
     margin: auto;
   }
+
+  a {
+    display: inline-block;
+    padding: 0 3px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+  }
+
+  a:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+  }
+
+  .separator {
+    &:first-child {
+      display:none;
+    }
+  }
+
+  .bands {
+    margin-top: 3px;
+  }
 }
 
 
@@ -80,11 +108,11 @@ h1, h2 {
 
 .history {
   opacity: .5;
-  -webkit-transition: opacity .35s ease-in-out;
-  -moz-transition: opacity .35s ease-in-out;
-  -ms-transition: opacity .35s ease-in-out;
-  -o-transition: opacity .35s ease-in-out;
-  transition: opacity .35s ease-in-out;
+  -webkit-transition: opacity .18s ease-in-out;
+  -moz-transition: opacity .18s ease-in-out;
+  -ms-transition: opacity .18s ease-in-out;
+  -o-transition: opacity .18s ease-in-out;
+  transition: opacity .18s ease-in-out;
   &:hover {
     opacity: 1;
   }
@@ -171,6 +199,9 @@ h1, h2 {
 .form-container {
   .date-form {
     margin: 30px;
+    select {
+      color: black;
+    }
   }
 
   .poster-form {
@@ -187,33 +218,86 @@ h1, h2 {
   .form-button {
     margin: 10px 0;
   }
+
+  .button-success {
+    background: white;
+  }
 }
 
+// Event Show Page
 
+.event-show-container {
+}
 
-// .custom-file-input::-webkit-file-upload-button {
-//   visibility: hidden;
-// }
-// .custom-file-input::before {
-//
-//   content: 'Upload';
-//   display: inline-block;
-//   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-//   border: 1px solid #999;
-//   border-radius: 3px;
-//   padding: 5px 8px;
-//   outline: none;
-//   white-space: nowrap;
-//   -webkit-user-select: none;
-//   color: black;
-//   cursor: pointer;
-//   text-shadow: 1px 1px #fff;
-//   font-weight: 700;
-//   font-size: 10pt;
-// }
-// .custom-file-input:hover::before {
-//   border-color: black;
-// }
-// .custom-file-input:active::before {
-//   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-// }
+.poster-show {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bands-show {
+  float: center;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+    h1 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 4em;
+      // background-image: url(http://i.imgur.com/TrxPzLA.png);
+      // color: black;
+    }
+  .band-show {
+    font-family: 'Metal Mania', cursive;
+    font-size: 3em;
+    &:hover {
+      color: red;
+      cursor: pointer;
+    }
+  }
+}
+
+.taped-up {
+  display: inline-block; /* displays element as an inline element similar to <span> */
+  padding: 15px; /* size of the white border */
+  margin: 25px; /* position image with other page elements */
+  /* give the border's background color a gradient */
+  /* depending on the colors you give you can make it look new or old and faded */
+  background: #F5EEE1; /*default color for browsers that don't support gradients*/
+  background: -webkit-linear-gradient(left top, #F5EEE1 , #FAFAF9); /* For Safari */
+  background: -o-linear-gradient(bottom right, #F5EEE1, #FAFAF9); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #F5EEE1, #FAFAF9); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #F5EEE1 , #FAFAF9); /* Standard syntax (should be last) */
+  /* give the image a drop shadow */
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.75); 
+  /* give the image a slight rotation for a realistic effect */  
+  -ms-transform:rotate(3deg); /* IE 9 */
+  -webkit-transform:rotate(3deg); /* Safari and Chrome */
+  transform:rotate(3deg); /* Standard syntax (should be last) */
+  /* Cleans up the jagged edges caused by the rotation a bit */
+  -webkit-backface-visibility:hidden; /* Chrome and Safari */
+  -moz-backface-visibility:hidden; /* Firefox */
+  -ms-backface-visibility:hidden; /* Internet Explorer */   
+  backface-visibility:hidden; /* Standard syntax (should be last) */
+  position: relative; /* lets us later position the tape relative to the box */
+} 
+
+.taped-up:before {
+  content: ''; /* create an empty psuedo element */
+  position: absolute; /* positions the tape relative to the box created above rather than the whole page */
+  background-color: rgba(255,255,255,0.4); /* using rgba for the color lets us make the tape transparent */
+  height: 26px; /* height of the tape */
+  /* using :before places the tape on the left of the div */
+  left:100px; /* position from the left edge of the .taped-up div edge */
+  top: -14px; /* position from the top edge of the .taped-up div edge */
+  width: 95px; /* width of the tape */
+  /*rotate the tape 5 degrees counter-clockwise*/
+  -ms-transform:rotate(-5deg); /* IE 9 */
+  -webkit-transform:rotate(-5deg); /* Safari and Chrome */
+  transform:rotate(-5deg); /* Standard syntax (should be last) */ 
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1); /* give the tape a slight drop shadow */
+  /* giving the tape an almost transparent dotted border on the right and left gives it a nicely perforated-look at the edges */  
+  border-style: dotted;
+  border-color: rgba(0,0,0,0.1);
+  border-width: 0 2px; /* border only on right and left sides */
+}

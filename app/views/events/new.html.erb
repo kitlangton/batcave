@@ -1,6 +1,6 @@
 <h1>NEW SHOW</h1>
 
-<div class="form-container">
+<div class="form-container pure-form">
   <%= form_for @event, :html => {:multipart => true} do |f| %>
 
   <div class="date-form">
@@ -38,7 +38,7 @@
       <%= button_tag 'Add New Band', id: 'add_band_form', type: 'button', class: 'pure-button'  %>
     </div>
 <div class="form-button">
-  <%= f.submit "Create", class: 'pure-button' %>
+  <%= f.submit "Create", class: 'pure-button button-success' %>
 </div>
 <% end %>
 </div>
