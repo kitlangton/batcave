@@ -20,4 +20,6 @@
 //= require masonry/modernizr-transitions
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min
+//= require mousetrap.min
+//= require typeahead
 //= require_tree .

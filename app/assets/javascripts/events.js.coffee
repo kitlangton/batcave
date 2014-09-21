@@ -1,8 +1,22 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-#
-#
+# # Place all the behaviors and hooks related to the matching controller here.
+# # All this logic will automatically be available in application.js.
+# # You can use CoffeeScript in this file: http://coffeescript.org/
+# #
+# #
+
+$ ->
+  Mousetrap.bind "command+b", (e) ->
+    $(".hidden:first").removeClass("hidden").addClass("new")
+    $(".typeahead:visible:last").focus()
+
+
+
+$ ->
+  $("#add_band_form").click ->
+    $(".hidden:first").removeClass("hidden")
+    # div = $(".duplicate").clone().removeClass("duplicate")
+    # $(".duplicate .typeahead").val ""
+    # $(".duplicate").before div
 
 $ ->
   $("#container").masonry
@@ -26,11 +40,13 @@ $ ->
       $("#container").masonry "reload"
       $("#history-container").masonry "reload"
 
-    # $("#add_band_form").bind "click", (e) ->
-    #   row = $("div.new_band_row").clone().removeClass("hidden new_band_row")
-    #   $("div.actions").before div
+
+
+
 
 
 $(window).load ->
       $("#container").masonry "reload"
       $("#history-container").masonry "reload"
+
+

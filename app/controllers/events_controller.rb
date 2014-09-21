@@ -10,8 +10,12 @@ class EventsController < ApplicationController
   end
 
   def new
+
+    @band_names = Band.pluck(:name)
+
     @event = Event.new
     4.times { @event.bands.build }
+
   end
 
   def create
@@ -22,9 +26,13 @@ class EventsController < ApplicationController
     if @event.save
       params[:bands].each do |band|
         next if band[:name].empty?
-        @event.bands.create!(name: band[:name])
+        if Band.exists?(name: band[:name])
+          @event.bookings.create!(band_id: Band.where(name: band[:name]).first.id)
+        else
+          @event.bands.create!(name: band[:name])
+        end
       end
-      flash[:success] = params[:bands][0]
+      # flash[:success] = params[:bands][0]
     else
       render 'new'
     end

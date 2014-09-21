@@ -1,34 +1,44 @@
-<% provide(:title, 'Create An Event') %>
+<h1>NEW SHOW</h1>
 
 <div class="form-container">
   <%= form_for @event, :html => {:multipart => true} do |f| %>
-  <%# <%= render 'fields', f: f  %>
-  <%= f.date_select :date  %>
-  at
-  <%= f.time_select :time, ampm: true, minute_step: 15%>
-  <div class="poster-form">
-    <%= f.file_field :image  %>
+
+  <div class="date-form">
+    <h3>WHEN</h3>
+    <%= f.date_select :date  %>
+    at
+    <%= f.time_select :time, ampm: true, minute_step: 15%>
   </div>
 
+  <div class="poster-form">
+    <h3>ART</h3>
+    <%= f.file_field :image, class: 'custom-file-input'  %>
+  </div>
+
+
+  <div class="bands">
+    <h3>BANDS</h3>
     <div class="band-name-form">
-      <%= text_field_tag 'bands[][name]' %>
+      <%= text_field_tag 'bands[][name]', nil, class: 'typeahead'%>
     </div>
+
+    <% 5.times do %>
+    <div class="band-name-form hidden">
+      <%= text_field_tag 'bands[][name]', nil, class: 'typeahead' %>
+    </div>
+    <% end %>
+
+  </div>
 
     <div class="actions">
       <%= button_tag 'Add New Band', id: 'add_band_form', type: 'button'  %>
-    </div>
-
-    <div class="new_band_row hidden">
-      <%= text_field_tag 'bands[][name]' %>
     </div>
 
   <%= f.submit "Create"  %>
 <% end %>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-  $('#add_band_form').bind('click', function(e) {
-    var div = $('.new_band_row').clone().removeClass('hidden new_band_row');
-    $('.actions').before(div);
-  });
-</script>
+<%= content_tag "div", id: "data", data: {names: @band_names} do %>
+<% end %>
+
+

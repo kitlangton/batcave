@@ -18,6 +18,7 @@
  *= require 'masonry/infinitescroll'
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
+ *= require typeahead-rails
  *= require_tree .
  */
 
