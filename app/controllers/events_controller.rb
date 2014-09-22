@@ -1,3 +1,5 @@
+require 'soundcloud'
+
 class EventsController < ApplicationController
   def index
     # @tonights_event = Event.tonight
@@ -7,6 +9,21 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    # client = SoundCloud.new({
+    #   :client_id     => 'cb7c038ba6c4c9b4d7a743366f5659f4',
+    #   :client_secret => '6e2f053cc79982dc9506094a59e90122',
+    #   :username      => 'kitlangton@gmail.com',
+    #   :password      => 'radar23'
+    # })
+    #
+    # my_user = client.get('/me/')
+    # playlists = client.get("/users/#{my_user.id}/playlists").to_a
+    #
+    # pl = playlists.select{|pl| pl.title == "Batcave Preview: #{@event.show_time.strftime("%B %d")}"}
+    #
+    # @embed_info = client.get('/oembed', :url => pl.first.uri)[:html]
+    @embed_info = "hi"
   end
 
   def new
@@ -31,6 +48,7 @@ class EventsController < ApplicationController
           @event.bands.create!(name: band[:name])
         end
       end
+      # create_soundcloud_playlist(@event)
       # flash[:success] = params[:bands][0]
     else
       render 'new'
@@ -42,4 +60,26 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:date, :time, :image)
   end
+
+  # def create_soundcloud_playlist(event)
+  #   client = SoundCloud.new({
+  #     :client_id     => 'cb7c038ba6c4c9b4d7a743366f5659f4',
+  #     :client_secret => '6e2f053cc79982dc9506094a59e90122',
+  #     :username      => 'kitlangton@gmail.com',
+  #     :password      => 'radar23'
+  #   })
+  #
+  #   tracks = []
+  #
+  #   event.bands.pluck(:name).each do |name|
+  #     tracks << client.get('/tracks', :q => "#{name}", :licence => 'cc-by-sa').first
+  #   end
+  #
+  #   playlist = client.post('/playlists', :playlist => {
+  #     :title => "Batcave Preview: #{event.show_time.strftime("%B %d")}",
+  #     :sharing => 'public',
+  #     :tracks => tracks,
+  #     :description => event.bands.pluck(:name).join("\n")
+  #   })
+  # end
 end

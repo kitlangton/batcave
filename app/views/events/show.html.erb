@@ -15,22 +15,22 @@
 
     <span class="taped-up">
       <%= link_to @event.image_url do %>
-      <%= image_tag @event.image_url(:thumb)%>
+        <%= image_tag @event.image_url(:thumb)%>
     <% end %>
     </span>
   </div>
 
   <div class="bands-show pure-u-lg-1-3">
-      <div class="date-and-time">
+    <div class="date-and-time">
       <% if @event.today? %>
         <span class="date strong">
-      TONIGHT
-        </span>
-      <% else %>
-      <span class="date"><%= @event.date.strftime("%B %d").upcase  %></span>
-      <% end %>
+        TONIGHT
+      </span>
+    <% else %>
+        <span class="date"><%= @event.date.strftime("%B %d").upcase  %></span>
+    <% end %>
       <span class="time">@ <%=  @event.time.strftime("%l:%M %p").upcase  %></span>
-      </div>
+    </div>
 
     <% @event.bands.each do |band| %>
       <div class="band-show" alt="<%= band.name.titleize.split.join.underscore.dasherize %>">
@@ -40,7 +40,10 @@
   </div>
 
   <div class="playlist pure-u-lg-1-4">
-<iframe width="100%" height="450" scrolling="no" frameborder="no" id="sc-widget" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/34463824&amp;color=000000&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+    <!-- <iframe width="100%" height="450" scrolling="no" frameborder="no" id="sc&#45;widget" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/34463824&#38;amp;color=000000&#38;amp;auto_play=false&#38;amp;hide_related=false&#38;amp;show_comments=true&#38;amp;show_user=true&#38;amp;show_reposts=false"></iframe> -->
+    <div class="sc-holder">
+      <%= @embed_info.html_safe  %>
+    </div>
   </div>
 </div>
 

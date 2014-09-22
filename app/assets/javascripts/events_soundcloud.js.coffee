@@ -1,5 +1,6 @@
 $ ->
-  widgetIframe = document.getElementById("sc-widget")
+  $(".sc-holder").find(">:first-child").attr(id: "sc")
+  widgetIframe = document.getElementById("sc")
   widget = SC.Widget(widgetIframe)
   widget.bind SC.Widget.Events.READY, ->
     widget.bind SC.Widget.Events.PLAY, ->
