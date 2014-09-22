@@ -14,7 +14,6 @@ class EventsController < ApplicationController
     @band_names = Band.pluck(:name)
 
     @event = Event.new
-    4.times { @event.bands.build }
 
   end
 

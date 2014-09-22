@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require purecss
+ *= require purecss/grids
  *= require 'masonry/basic'
  *= require 'masonry/centered'
  *= require 'masonry/fluid'

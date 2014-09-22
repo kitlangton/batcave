@@ -63,6 +63,9 @@ h1, h2 {
   color: white;
   .poster {
     vertical-align: top;
+    img {
+      cursor: pointer;
+    }
   }
 
   .band {
@@ -229,21 +232,29 @@ h1, h2 {
 .event-show-container {
 }
 
+
 .poster-show {
+
+  // background: red;
   text-align: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+  img {
+  }
 }
 
 .bands-show {
-  float: center;
-  margin: 0 auto;
+  // background: blue;
+  margin: auto;
   text-align: center;
+  // display: table-cell;
   vertical-align: middle;
-    h1 {
+    .date-and-time {
+      border-bottom: 1px solid white;
       font-family: 'Permanent Marker', cursive;
-      font-size: 4em;
+      font-size: 2em;
       // background-image: url(http://i.imgur.com/TrxPzLA.png);
       // color: black;
     }
@@ -255,7 +266,20 @@ h1, h2 {
       cursor: pointer;
     }
   }
+
 }
+
+.playlist {
+  margin: 0 40px;
+  p {
+    text-align: center;
+  }
+}
+
+.red {
+  color: red;
+}
+
 
 .taped-up {
   display: inline-block; /* displays element as an inline element similar to <span> */

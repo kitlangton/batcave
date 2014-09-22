@@ -9,8 +9,6 @@ $ ->
     $(".hidden:first").removeClass("hidden").addClass("new")
     $(".typeahead:visible:last").focus()
 
-
-
 $ ->
   $("#add_band_form").click ->
     $(".hidden:first").removeClass("hidden")
@@ -48,5 +46,4 @@ $ ->
 $(window).load ->
       $("#container").masonry "reload"
       $("#history-container").masonry "reload"
-
 

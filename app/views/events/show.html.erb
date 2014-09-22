@@ -1,21 +1,55 @@
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
 <link href='http://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+<!--<![endif]-->
 
-<div class="event-show-container">
-  <div class="poster-show">
+<div class="event-show-container pure-g">
+  <div class="poster-show pure-u-lg-1-3">
 
     <span class="taped-up">
-      <%= image_tag @event.image_url%>
+      <%= link_to @event.image_url do %>
+      <%= image_tag @event.image_url(:thumb)%>
+    <% end %>
     </span>
   </div>
 
-  <div class="bands-show">
-    <h1>BANDS</h1>
+  <div class="bands-show pure-u-lg-1-3">
+      <div class="date-and-time">
+      <% if @event.today? %>
+        <span class="date strong">
+      TONIGHT
+        </span>
+      <% else %>
+      <span class="date"><%= @event.date.strftime("%B %d").upcase  %></span>
+      <% end %>
+      <span class="time">@ <%=  @event.time.strftime("%l:%M %p").upcase  %></span>
+      </div>
+
     <% @event.bands.each do |band| %>
-      <div class="band-show">
+      <div class="band-show" alt="<%= band.name.titleize.split.join.underscore.dasherize %>">
       <%= band.name  %>
     </div>
   <% end %>
   </div>
 
+  <div class="playlist pure-u-lg-1-4">
+<iframe width="100%" height="450" scrolling="no" frameborder="no" id="sc-widget" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/34463824&amp;color=000000&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+  </div>
 </div>
+
+
+<!-- <div class="pure&#45;g"> -->
+<!--   <div class="pure&#45;u&#45;1&#45;2"> -->
+<!--     Hi -->
+<!--   </div> -->
+<!--   <div class="pure&#45;u&#45;1&#45;2"> -->
+<!--     Hi -->
+<!--   </div> -->
+<!-- </div> -->
