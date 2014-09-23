@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require masonry/jquery.masonry
 //= require masonry/jquery.event-drag
 //= require masonry/jquery.imagesloaded.min
@@ -23,3 +23,4 @@
 //= require mousetrap.min
 //= require typeahead
 //= require_tree .
+//= require turbolinks

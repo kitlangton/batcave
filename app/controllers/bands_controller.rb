@@ -34,6 +34,10 @@ class BandsController < ApplicationController
       :tracks => tracks,
     })
 
+    playlist_html = client.get('/oembed', :url => playlist.uri)[:html] 
+
+    event.update(playlist_url: playlist_html )
+
   end
 
 end

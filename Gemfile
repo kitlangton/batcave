@@ -31,6 +31,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'soundcloud'
+gem 'jquery-turbolinks'
 
 
 gem 'purecss-rails'
