@@ -11,10 +11,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     client = SoundCloud.new({
-      :client_id     => 'cb7c038ba6c4c9b4d7a743366f5659f4',
-      :client_secret => '6e2f053cc79982dc9506094a59e90122',
-      :username      => 'kitlangton@gmail.com',
-      :password      => 'radar23'
+      :client_id     => ENV['SOUNDCLOUD_KEY'],
+      :client_secret => ENV['SOUNDCLOUD_SECRET'],
+      :username      => ENV['SOUNDCLOUD_USERNAME'],
+      :password      => ENV['SOUNDCLOUD_PASSWORD']
     })
 
     my_user = client.get('/me/')
