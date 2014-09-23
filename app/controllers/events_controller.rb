@@ -10,20 +10,19 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    # client = SoundCloud.new({
-    #   :client_id     => 'cb7c038ba6c4c9b4d7a743366f5659f4',
-    #   :client_secret => '6e2f053cc79982dc9506094a59e90122',
-    #   :username      => 'kitlangton@gmail.com',
-    #   :password      => 'radar23'
-    # })
-    #
-    # my_user = client.get('/me/')
-    # playlists = client.get("/users/#{my_user.id}/playlists").to_a
-    #
-    # pl = playlists.select{|pl| pl.title == "Batcave Preview: #{@event.show_time.strftime("%B %d")}"}
-    #
-    # @embed_info = client.get('/oembed', :url => pl.first.uri)[:html]
-    @embed_info = "hi"
+    client = SoundCloud.new({
+      :client_id     => 'cb7c038ba6c4c9b4d7a743366f5659f4',
+      :client_secret => '6e2f053cc79982dc9506094a59e90122',
+      :username      => 'kitlangton@gmail.com',
+      :password      => 'radar23'
+    })
+
+    my_user = client.get('/me/')
+    playlists = client.get("/users/#{my_user.id}/playlists").to_a
+
+    pl = playlists.select{|pl| pl.title == "Batcave Preview: #{@event.show_time.strftime("%B %d")}"}
+
+    @embed_info = client.get('/oembed', :url => pl.first.uri)[:html]
   end
 
   def new
@@ -35,8 +34,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    redirect_to root_url
-
     @event = Event.new(event_params)
 
     if @event.save
@@ -48,11 +45,22 @@ class EventsController < ApplicationController
           @event.bands.create!(name: band[:name])
         end
       end
+
+      if @event.bands.any? {|band| band.date_configured.nil?}
+        redirect_to :controller => "events", :action => "configure", :id => @event.id
+      else
+        redirect_to root_url
+      end
       # create_soundcloud_playlist(@event)
       # flash[:success] = params[:bands][0]
     else
       render 'new'
     end
+  end
+
+  def configure
+    @event = Event.find(params[:id])
+    @bands = @event.bands.where(date_configured: nil)
   end
 
   private

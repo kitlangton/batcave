@@ -1,0 +1,20 @@
+<h1>SET UP NEW BANDS</h1>
+
+<div class="form-container pure-form">
+  <div class="band-config-form">
+    <%= form_tag update_multiple_bands_path, method: :put do  %>
+  <% @bands.each do |band| %>
+    <h3><%= band.name.upcase  %></h3>
+    <%= fields_for "bands[]", band do |f|  %>
+
+      <%= f.label :sound_cloud_url, 'Soundcloud URL' %>
+      <%= f.text_field :sound_cloud_url  %>
+
+    <% end  %>
+  <% end  %>
+
+  </div>
+  <%= hidden_field_tag 'event_id', @event.id  %>
+  <%= submit_tag "Configure", class: "pure-button"  %>
+<% end %>
+</div>
