@@ -9,19 +9,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-
-    # client = SoundCloud.new({
-    #   :client_id     => ENV['SOUNDCLOUD_KEY'],
-    #   :client_secret => ENV['SOUNDCLOUD_SECRET'],
-    #   :username      => ENV['SOUNDCLOUD_USERNAME'],
-    #   :password      => ENV['SOUNDCLOUD_PASSWORD']
-    # })
-    #
-    # my_user = client.get('/me/')
-    # playlists = client.get("/users/#{my_user.id}/playlists").to_a
-    #
-    # pl = playlists.select{|pl| pl.title == "Batcave Preview: #{@event.show_time.strftime("%B %d")}"}
-
     @embed_info = @event.playlist_url
   end
 
