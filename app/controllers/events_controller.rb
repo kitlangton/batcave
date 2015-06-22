@@ -15,7 +15,6 @@ class EventsController < ApplicationController
   def new
 
     @band_names = Band.pluck(:name)
-
     @event = Event.new
 
   end
